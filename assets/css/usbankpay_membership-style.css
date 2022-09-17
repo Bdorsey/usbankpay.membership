@@ -1,0 +1,13 @@
+.merchant_money_input_mu input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0 !important;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.payment_method_usbankpay_membership_img_mu{
+    max-width: 200px !important;
+}
