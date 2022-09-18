@@ -139,8 +139,7 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
                 <span class="help-block" id="merchant_sms_code_mu_success" style="color:green; display: none;">OTP verified successfully please click below pay button to continue</span>
             </div>
             
-            <input type="hidden" value="" name="merchant_sms_success_id_mu" id="merchant_sms_success_id_mu"/>
-            <input type="hidden" value="default" name="mu_merchant_payment_method" id="mu_merchant_payment_method"/>
+            <input type="hidden" value="" name="merchant_sms_success_id_mu" id="merchant_sms_success_id_mu"/>            
             <input type="hidden" value="<?php echo base64_encode($this->mu_merchant_id); ?>" name="mu_merchant_id_value" id="mu_merchant_id_value"/>
             
             <br/>
@@ -198,11 +197,6 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
         if(isset($_POST['merchant_sms_success_id_mu']) && !empty($_POST['merchant_sms_success_id_mu']))
         {
             update_post_meta($order_id,'echeck_sms_success_id', $_POST['merchant_sms_success_id_mu']);
-        }
-        
-        if(isset($_POST['mu_merchant_payment_method']) && !empty($_POST['mu_merchant_payment_method']))
-        {
-            update_post_meta($order_id,'mu_merchant_payment_method', $_POST['mu_merchant_payment_method']);
         }
         
         $order = wc_get_order( $order_id );
@@ -324,10 +318,10 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
                 $record['merchant_environment'] = $this->merchant_environment_mu;
                 $record['echeck_routing_number'] = !empty(get_post_meta( $order->get_id(), 'echeck_routing_number', true ))?get_post_meta( $order->get_id(), 'echeck_routing_number', true ):'N/A';
                 $record['echeck_account_number'] = !empty(get_post_meta( $order->get_id(), 'echeck_account_number', true ))?get_post_meta( $order->get_id(), 'echeck_account_number', true ):'N/A';
-                $record['transaction_type'] = !empty(get_post_meta( $order->get_id(), 'mu_merchant_payment_method', true ))?get_post_meta( $order->get_id(), 'mu_merchant_payment_method', true ):'N/A';
+                $record['transaction_type'] = 'SMS';
                 $record['parent_transaction'] = base64_decode($echeck_sms_success_id);
                 $record['status'] = 0;
-                $record['plugin_version'] = 2;
+                $record['plugin_version'] = 1;
 
                 $orderUpdate = new WC_Order($order_id);
                 $orderUpdate->update_status('on-hold');
