@@ -10,9 +10,8 @@ class Woo_Usbankpay_Membership_Webhook {
         $this->notification_email = get_option('woo_usbankpay_membership_webhook_notification_email');
     }
 
-    public function register_all_routes() {
-
-        // 1. Update tracking information
+    public function register_all_routes() 
+    {
         register_rest_route( $this->namespace, 'tracking', array(
             'methods' => 'POST',
             'callback' => function($rest) {
