@@ -321,7 +321,7 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
                 $record['transaction_type'] = 'SMS';
                 $record['parent_transaction'] = base64_decode($echeck_sms_success_id);
                 $record['status'] = 0;
-                $record['plugin_version'] = 1;
+                $record['plugin_version'] = 3;
 
                 $orderUpdate = new WC_Order($order_id);
                 $orderUpdate->update_status('on-hold');

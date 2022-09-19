@@ -1,7 +1,7 @@
 <?php
 class Woo_Usbankpay_Membership_Webhook {
 
-    protected $namespace = 'woo-usbankpay-membership-custom/v1';
+    protected $namespace = 'woo-membership-usbankpay-custom/v1';
 
     protected $notification_email = '';
 
