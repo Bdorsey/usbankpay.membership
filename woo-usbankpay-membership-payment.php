@@ -12,7 +12,7 @@ define( 'WC_USBANKPAY_MEMBERSHIP_PLUGIN_DIR', plugin_dir_url( __FILE__ ));
 define( 'WC_USBANKPAY_MEMBERSHIP_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ )); 
 define( 'WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG', 'woo_usbankpay_membership_payment'); 
 define( 'WC_USBANKPAY_MEMBERSHIP_MAIN_FILE', __FILE__ );
-define( 'WC_MERCHANT_VERSION',1.1);
+define( 'WC_MEMBERSHIP_USBANKPAY',1.0);
 
 define('WC_USBANKPAY_MEMBERSHIP_LIC_VERIFICATION_KEY', '5fa032e7775e82.56603060' );
 define('WC_USBANKPAY_MEMBERSHIP_LIC_HOST_SERVER', 'https://www.merchants.money');

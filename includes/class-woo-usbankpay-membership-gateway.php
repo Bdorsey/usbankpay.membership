@@ -67,16 +67,16 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
     
     public function mu_payment_scripts()
     {
-        wp_register_style( 'usbankpay_membership_styles', plugins_url( 'assets/css/usbankpay_membership-style.css', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MERCHANT_VERSION );
+        wp_register_style( 'usbankpay_membership_styles', plugins_url( 'assets/css/usbankpay_membership-style.css', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MEMBERSHIP_USBANKPAY );
         wp_enqueue_style( 'usbankpay_membership_styles' );
         
-        wp_register_style( 'Bootstrap_css_usbankpay_membership', plugins_url( 'assets/css/usbankpay_membership_bootstrap.css', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MERCHANT_VERSION );
+        wp_register_style( 'Bootstrap_css_usbankpay_membership', plugins_url( 'assets/css/usbankpay_membership_bootstrap.css', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MEMBERSHIP_USBANKPAY );
         wp_enqueue_style( 'Bootstrap_css_usbankpay_membership' );
         
         wp_register_script('usbankpay_membership_prefix_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js',array('jquery'), '1.0', true);
         wp_enqueue_script('usbankpay_membership_prefix_bootstrap');
         
-        wp_register_script( 'usbankpay_membership_js', plugins_url( 'assets/js/usbankpay_membership.js', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MERCHANT_VERSION );
+        wp_register_script( 'usbankpay_membership_js', plugins_url( 'assets/js/usbankpay_membership.js', WC_USBANKPAY_MEMBERSHIP_MAIN_FILE ), [], WC_MEMBERSHIP_USBANKPAY );
         wp_enqueue_script( 'usbankpay_membership_js' );        
     }
     
