@@ -165,7 +165,7 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
             'enabled' => array(
                 'title'   => __( 'Enable/Disable', WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG ),
                 'type'    => 'checkbox',
-                'label'   => __( 'Enable Merchant Money Gateway', WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG ),
+                'label'   => __( 'Enable Membership USBankPay Gateway', WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG ),
                 'default' => 'yes'
             ),
             'title' => array(
@@ -180,7 +180,7 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
                 'type'        => 'text',
                 'desc_tip'    => true,
                 'description' => __( 'This controls the description which the user sees during checkout.', WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG ),
-                'default'     => __( "Pay using your Routing and Account Info" )
+                'default'     => __( "Pay using your Membership" )
             ),                                   
             'merchant_id' => array(
                 'title'       => __( 'Merchant ID', WC_USBANKPAY_MEMBERSHIP_PAYMENT_SLUG ),
