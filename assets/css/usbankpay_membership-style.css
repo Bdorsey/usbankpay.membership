@@ -9,5 +9,6 @@
 }
 
 .payment_method_usbankpay_membership_img_mu{
-    max-width: 200px !important;
+    max-width: 170px !important;
+    max-height: 40px !important;
 }
