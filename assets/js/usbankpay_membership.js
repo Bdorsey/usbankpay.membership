@@ -12,6 +12,12 @@ else
 
 jQuery(document).ready(function($) 
 {    
+    $(document).on('click','#iam_member_button',function()
+    {
+        $('.iam_member_message').hide('slow');
+        $('#verify_phone_number_mu').show('slow');        
+    });
+    
     $(document).on('click','#send_verification_code_mu',function()
     {
         var merchant_phone_number_mu = $('#merchant_phone_number_mu').val();
@@ -46,6 +52,8 @@ jQuery(document).ready(function($)
                 {
                     $('#merchant_phone_number_mu_error').hide();
                     $('#merchant_phone_number_mu_success').show();
+                    $('#verify_phone_number_mu').hide();
+                    $('#verify_sms_mu').show('slow');
                 }                
             }
           });          

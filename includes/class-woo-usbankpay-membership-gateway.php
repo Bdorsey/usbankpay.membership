@@ -82,7 +82,7 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
     
     public function get_icon() 
     {		
-        $icon = WC_MERCHANTS_MONEY_PLUGIN_DIR.'assets/images/Bank_Pay.png';        
+        $icon = WC_USBANKPAY_MEMBERSHIP_PLUGIN_DIR.'assets/images/Bank_Pay.png';        
 
         $icons_str = '<img class = "payment_method_usbankpay_membership_img_mu" src="'.$icon.'" />';
 
@@ -118,36 +118,44 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
     {
         ?>                
         <fieldset id="show_details" class="wc-credit-card-form wc-payment-form" style="background:transparent;">  
-            <b>Verify your phone number</b> - we will send you an SMS to make sure it's you
             
-            <div style="padding-top: 5px;" class="merchant_money_input_mu">
-                <label for="mu_phone_number">Phone Number<span style="color:#F00">*</span></label>
-                <input type="text" placeholder="xxxxxxxxxx" name="mu_phone_number" id="merchant_phone_number_mu" value="" required>
-                <span class="help-block" id="merchant_phone_number_mu_error" style="color:#F00; display: none;">This field is required.</span>
-                <span class="help-block" id="merchant_phone_number_mu_success" style="color:green; display: none;">insert the otp below sent to your mobile number</span>
-            </div>
-            <div class="row">
-                <div class="col-md-12">                    
-                    <a href="javascript:void(0)" class="merchant_button btn btn-danger form-control" id="send_verification_code_mu" style="float: right;text-decoration: none;font-size: 16px;">Send Verification Code</a>
-                </div>                                
-            </div>            
-            
-            <div style="padding-top: 5px;" class="merchant_money_input_mu">
-                <label for="mu_sms_code">SMS Code<span style="color:#F00">*</span></label>
-                <input type="text" placeholder="SMS Code" name="mu_sms_code" id="merchant_sms_code_mu" value="" required>
-                <span class="help-block" id="merchant_sms_code_mu_error" style="color:#F00; display: none;">This field is required.</span>
-                <span class="help-block" id="merchant_sms_code_mu_success" style="color:green; display: none;">OTP verified successfully please click below pay button to continue</span>
+            <div class="iam_member_message">
+                This payment option is for Members only please click. <br/>
+                <a href="javascript:void(0)" id="iam_member_button">I am a member</a> <br/>
+                If you would like to become a member. Please use US Bank Pay payment option above with routing and account number
             </div>
             
+            <section id="verify_phone_number_mu" style="display: none;">
+                <b>Verify your phone number</b> - we will send you an SMS to make sure it's you            
+                <div style="padding-top: 5px;" class="merchant_money_input_mu">
+                    <label for="mu_phone_number">Phone Number<span style="color:#F00">*</span></label>
+                    <input type="text" placeholder="xxxxxxxxxx" name="mu_phone_number" id="merchant_phone_number_mu" value="" required>
+                    <span class="help-block" id="merchant_phone_number_mu_error" style="color:#F00; display: none;">This field is required.</span>                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">                    
+                        <a href="javascript:void(0)" class="merchant_button btn btn-danger form-control" id="send_verification_code_mu" style="float: right;text-decoration: none;font-size: 16px;">Send Verification Code</a>
+                    </div>                                
+                </div>
+            </section>            
+            
+            <section id="verify_sms_mu" style="display: none;">
+                <div style="padding-top: 5px;" class="merchant_money_input_mu">
+                    <span class="help-block" id="merchant_phone_number_mu_success" style="color:green; display: none;">Insert the otp below sent to your mobile number</span>
+                    <label for="mu_sms_code">SMS Code<span style="color:#F00">*</span></label>
+                    <input type="text" placeholder="SMS Code" name="mu_sms_code" id="merchant_sms_code_mu" value="" required>
+                    <span class="help-block" id="merchant_sms_code_mu_error" style="color:#F00; display: none;">This field is required.</span>
+                    <span class="help-block" id="merchant_sms_code_mu_success" style="color:green; display: none;">OTP verified successfully please click below pay button to continue</span>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="javascript:void(0)" class="merchant_button btn btn-success form-control" style="margin-top:10px; text-decoration: none;" id="verify_code_mu">Verify SMS Code</a>
+                    </div>                
+                </div>
+            </section>
             <input type="hidden" value="" name="merchant_sms_success_id_mu" id="merchant_sms_success_id_mu"/>            
-            <input type="hidden" value="<?php echo base64_encode($this->mu_merchant_id); ?>" name="mu_merchant_id_value" id="mu_merchant_id_value"/>
-            
-            <br/>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="javascript:void(0)" class="merchant_button btn btn-success form-control" style="margin-top:10px; text-decoration: none;" id="verify_code_mu">Verify SMS Code</a>
-                </div>                
-            </div>            
+            <input type="hidden" value="<?php echo base64_encode($this->mu_merchant_id); ?>" name="mu_merchant_id_value" id="mu_merchant_id_value"/>                        
             <div class="clear"></div>
         </fieldset>
         
