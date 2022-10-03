@@ -296,7 +296,8 @@ class Woo_Usbankpay_Membership_Gateway extends WC_Payment_Gateway {
                 update_post_meta($order_id, '_woo_merchant_order_id_mu', $order_id);
 
                 // Payment complete
-                $order->payment_complete();
+                //$order->payment_complete();
+                
                 // Add order note
                 $order->add_order_note( sprintf( __( 'Membership USBankPay payment verification successful.', 'woocommerce' )) );
 

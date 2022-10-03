@@ -10,5 +10,9 @@
 
 .payment_method_usbankpay_membership_img_mu{
     max-width: 170px !important;
-    max-height: 40px !important;
+    max-height: 30px !important;
+}
+
+#iam_member_button{
+    font-size: 20px;
 }
